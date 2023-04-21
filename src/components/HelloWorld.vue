@@ -31,13 +31,9 @@
   <h1>{{ 'Hello World' }}</h1>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  // props: {
-  //   msg: String
-  // }
-}
+<script setup>
+import {defineProps} from 'vue'
+const msg = defineProps(['msg'])
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
