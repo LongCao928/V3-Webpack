@@ -1,24 +1,72 @@
-# v3-vuecli-peoject
+# ⚡️ 简介
 
-## Project setup
+一个基于 Vue3、Vue Router、Pinia、Axios 和 Element-Plus 的基础模板
+
+## 🚀 开发
+
 ```
+# 配置
+1. 安装 eslint 插件
+2. 安装 volar 插件
+3. node > v10.x
+
+# 安装依赖
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# 启动服务
 npm run serve
 ```
 
-### Compiles and minifies for production
+## 📦️ 多环境打包
+
 ```
+# 构建生产环境
 npm run build
 ```
 
-### Lints and fixes files
+### 🔧 代码格式检查
+
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Git 提交规范
+
+- `feat` 增加新功能
+- `fix` 修复问题/BUG
+- `style` 代码风格相关无影响运行结果的
+- `perf` 优化/性能提升
+- `refactor` 重构
+- `revert` 撤销修改
+- `test` 测试相关
+- `docs` 文档/注释
+- `chore` 依赖更新/脚手架配置修改等
+- `workflow` 工作流改进
+- `ci` 持续集成
+- `types` 类型定义文件更改
+- `wip` 开发中
+- `mod` 不确定分类的修改
+
+### 目录
+
+```
+├─ vue.config.ts // 项目配置
+├─ public // 文件下资源将会直接被拷贝，不会经过 webpack 的处理。需要通过绝对路径来引用。
+├─ babel.config.js // babel 配置文件
+├─ package.json // 项目配置文件
+├─ package-lock.json // 安装的依赖包指定版本
+├─ jsconfig.json // js 配置
+├─ .env.xxx // 各环境的配置文件
+├─ .gitignore // 配置 git 提交忽略文件
+(node_modules 快照)
+└─ src
+   │─ App.vue // 根容器
+   │─ main.js // 入口文件
+   ├─ components // 组件
+   ├─ assets // 静态资源
+   ├─ pages // 页面
+   ├─ router // 路由
+   ├─ stores // pinia 状态
+   ├─ servers // 服务
+   ├─ utils // 公用方法
+```
