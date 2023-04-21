@@ -1,6 +1,8 @@
 
-import { defineStore } from 'pinia'
+import { createPinia, defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+
+const store = createPinia()
 
 export const useUserStore = defineStore('user', () => {
   const age = ref(26)
@@ -11,3 +13,5 @@ export const useUserStore = defineStore('user', () => {
   }
   return { age, hopeAge, incrementAge }
 })
+
+export default store
