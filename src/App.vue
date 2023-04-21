@@ -1,17 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <template v-if="isShowHeader">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  </template>
+  <router-view />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+// import { RouterView } from 'vue-router'
+// import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+const isShowHeader = ref(true)
 </script>
 
 <style>
