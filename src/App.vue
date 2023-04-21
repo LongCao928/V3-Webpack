@@ -3,6 +3,10 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </template>
+  <div class="router-link">
+    <router-link to="/hello-world">Hello World!</router-link>
+    <router-link to="/">Home!</router-link>
+  </div>
   <router-view />
 </template>
 
@@ -21,5 +25,15 @@ const isShowHeader = ref(true)
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+</style>
+<style scoped lang="scss">
+.router-link {
+  font-size: 12px;
+  margin-bottom: 20px;
+  a {
+    margin-right: 15px;
+  }
 }
 </style>
