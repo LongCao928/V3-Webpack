@@ -2,7 +2,6 @@
   <div>首页</div>
   <div>pinia年龄：{{ age }}</div>
   <div>pinia理想年龄：{{ hopeAge }}</div>
-  <div>{{ '' }}</div>
 </template>
 
 <script setup>

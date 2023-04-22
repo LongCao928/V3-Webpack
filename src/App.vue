@@ -2,19 +2,52 @@
   <template v-if="isShowHeader">
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div class="router-link">
+      <router-link to="/hello-world" :class="{'selected': fullPath === '/hello-world'}">Hello World</router-link>
+      <router-link to="/" :class="{'selected': fullPath === '/' || fullPath === '/home'}">Home</router-link>
+      <router-link 
+        :to="{ path: '/use-element', query: { value: 'default' } }"
+      >
+        element-plus
+      </router-link>
+    </div>
   </template>
-  <div class="router-link">
-    <router-link to="/hello-world">Hello World</router-link>
-    <router-link to="/">Home</router-link>
-  </div>
   <router-view />
 </template>
 
 <script setup>
-// import { RouterView } from 'vue-router'
+  import { useRouter } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 const isShowHeader = ref(true)
+const fullPath = ref('')
+
+const Router = useRouter()
+
+watch(
+  // 不能直接侦听响应式对象的属性值, 需要用一个返回该属性的 getter 函数
+  () => Router.currentRoute.value,
+  newValue => {
+    console.log(newValue)
+    newValue.meta.hideHeader ? isShowHeader.value = false : isShowHeader.value = true
+    fullPath.value = newValue.fullPath
+  },
+  // immediate 立即执行回调，默认懒执行
+  // deep 强制转成深层侦听器
+  { immediate: true, deep: true }
+)
+
+// function toRouter() {
+//   Router.push({
+//     name: 'NotFound',
+//     // 保留当前路径并删除第一个字符，以避免目标 URL 以 `//` 开头。
+//     params: { pathMatch: this.$route.path.substring(1).split('/') },
+//     // 保留现有的查询和 hash 值，如果有的话
+//     query: this.$route.query,
+//     hash: this.$route.hash,
+//   })
+// }
+
 </script>
 
 <style>
@@ -35,6 +68,13 @@ const isShowHeader = ref(true)
   a {
     margin-right: 15px;
     text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .selected {
+    background-color: gray;
+    color: #fff;
+    font-weight: 600;
   }
 }
 </style>
