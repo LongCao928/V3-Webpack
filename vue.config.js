@@ -18,10 +18,10 @@ module.exports = defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'https://vue-typescript-admin-mock-server-armour.vercel.app/mock-api',
+        target: 'http://jsonplaceholder.typicode.com/',
         ws: true,
         pathRewrite: {
-          '^/mock-api/': ''
+          '^/api/': ''
         },
         changeOrigin: true,
         secure: false
