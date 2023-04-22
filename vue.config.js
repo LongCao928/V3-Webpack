@@ -3,8 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 // const WebpackBar = require('webpackbar')
 const TerserPlugin = require('terser-webpack-plugin')
-// svg
-const dir = path.resolve(__dirname, 'src/icons/svg')
+
 module.exports = defineConfig({
   transpileDependencies: true,
   outputDir: 'dist',
@@ -83,36 +82,37 @@ module.exports = defineConfig({
     // 开发环境 sourcemap 不包含列信息
     config.when(process.env.NODE_ENV === 'development',
       config => config.devtool('cheap-source-map')
-    ),
-
-      config.module
-        .rule('svg-sprite')
-        .test(/\.svg$/)
-        .include
-        .add(dir)
-        .end()
-        .use('svg-sprite-loader')
-        .loader('svg-sprite-loader')
-        .options({ extract: false })
-        .end()
-    config.plugin('svg-sprite')
-      .use(require('svg-sprite-loader/plugin')),
-      [{ pluginSprite: true }]
-    config.module
-      .rule('svg')
-      .exclude
+    )
+    // svg
+    // const dir = path.resolve(__dirname, 'src/icons/svg')
+    /*config.module
+      .rule('svg-sprite')
+      .test(/\.svg$/)
+      .include
       .add(dir)
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({ extract: false })
+      .end()
+    config.plugin('svg-sprite')
+    .use(require('svg-sprite-loader/plugin')),
+    [{ pluginSprite: true }]
+    config.module
+    .rule('svg')
+    .exclude
+    .add(dir)*/
     // 将运行代码单独生成文件
     if (process.env.NODE_ENV !== 'development') {
-      config.cache({
-        // 将缓存类型设置为 filesystem, 默认是 memory
-        type: 'filesystem',
-        buildDependencies: {
-          // 更改配置文件时重新缓存
-          config: [__filename]
-        }
-      })
-      config.optimization.runtimeChunk('single')
+    config.cache({
+      // 将缓存类型设置为 filesystem, 默认是 memory
+      type: 'filesystem',
+      buildDependencies: {
+        // 更改配置文件时重新缓存
+        config: [__filename]
+      }
+    })
+    config.optimization.runtimeChunk('single')
     }
   }
 })

@@ -176,7 +176,7 @@ function makeUrl(type, module, path, data) {
   const query = { ...(data || {}) }
   if (path[0] !== '/') path = `/${path}`
   let url = ''
-  env === 'local' ? (url = '/api') : (url = baseURL)
+  env === 'development' ? (url = '/api') : (url = baseURL)
   if (type === 'get') {
     url += `${module}${path}?${qs.stringify(query)}`
   } else {

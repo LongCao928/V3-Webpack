@@ -10,6 +10,7 @@
       >
         element-plus
       </router-link>
+      <el-button @click="openAxiosPage">axios</el-button>
     </div>
   </template>
   <router-view />
@@ -47,6 +48,14 @@ watch(
 //     hash: this.$route.hash,
 //   })
 // }
+
+function openAxiosPage() {
+	console.log('openaxios')
+	Router.push({
+		name: 'axios',
+		query: { name: 'axios' }
+	})
+}
 
 </script>
 

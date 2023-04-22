@@ -1,5 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
+import Loading from '@/utils/loading'
 
 const routes = [
   {
@@ -29,7 +30,16 @@ const routes = [
     meta: {
       title: 'element-plus',
       hideHeader: true
-    }
+    },
+  },
+  {
+    path: '/axios',
+    name: 'axios',
+    component: () => import('@/pages/axios/UseAxios.vue'),
+    meta: {
+      title: 'axios',
+      hideHeader: true
+    },
   }
 ]
 
@@ -39,6 +49,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, form, next) => {
+  Loading.show()
   if (to.meta) {
     document.title = to.meta.title ? `${to.meta.title}` : 'V3 Webpack'
   }
@@ -46,7 +57,7 @@ router.beforeEach((to, form, next) => {
 })
 
 router.afterEach(() => {
-  // loading.hide()
+  Loading.hide()
 })
 
 export default router
