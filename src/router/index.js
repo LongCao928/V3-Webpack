@@ -39,6 +39,15 @@ const routes = [
     meta: {
       title: 'axios',
       hideHeader: true
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/pages/base/LoginPage.vue'),
+    meta: {
+      title: '登录',
+      hideHeader: true
     },
   }
 ]
