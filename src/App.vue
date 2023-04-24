@@ -1,15 +1,17 @@
 <template>
   <template v-if="isShowHeader">
     <div class="header-img">
-      <img alt="Vue logo" src="./assets/logo.png">
+      <img alt="Vue logo"
+        src="./assets/logo.png">
     </div>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <div class="router-link">
-      <router-link to="/hello-world" :class="{'selected': fullPath === '/hello-world'}">Hello World</router-link>
-      <router-link to="/" :class="{'selected': fullPath === '/' || fullPath === '/home'}">Home</router-link>
-      <router-link 
-        :to="{ path: '/use-element', query: { value: 'default' } }"
-      >
+      <router-link to="/base-login">登录页</router-link>
+      <router-link to="/hello-world"
+        :class="{'selected': fullPath === '/hello-world'}">Hello World</router-link>
+      <router-link to="/"
+        :class="{'selected': fullPath === '/' || fullPath === '/home'}">Home</router-link>
+      <router-link :to="{ path: '/use-element', query: { value: 'default' } }">
         element-plus
       </router-link>
       <el-button @click="openAxiosPage">axios</el-button>
@@ -19,7 +21,7 @@
 </template>
 
 <script setup>
-  import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
 import { ref, watch } from 'vue'
 const isShowHeader = ref(true)
@@ -52,11 +54,11 @@ watch(
 // }
 
 function openAxiosPage() {
-	console.log('openaxios')
-	Router.push({
-		name: 'axios',
-		query: { name: 'axios' }
-	})
+  console.log('openaxios')
+  Router.push({
+    name: 'axios',
+    query: { name: 'axios' }
+  })
 }
 
 </script>

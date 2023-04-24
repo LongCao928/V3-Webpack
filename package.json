@@ -5,8 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-test": "vue-cli-service build --mode test --modern",
-    "lint": "vue-cli-service lint"
+    "build-test": "vue-cli-service build --modern --mode test",
+    "lint": "vue-cli-service lint ./src",
+    "lint-fix": "vue-cli-service lint  --fix ./src --ext .vue,.js,.ts"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
