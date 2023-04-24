@@ -32,7 +32,8 @@
 </template>
 
 <script setup>
-import {defineProps} from 'vue'
+// import { defineProps } from 'vue'
+// "vue/setup-compiler-macors": true
 const msg = defineProps(['msg'])
 </script>
 

@@ -5,6 +5,7 @@ import { ElMessage } from "element-plus"
 import Token from '@/services/token'
 import { httpCode } from '@/config'
 import { Toast } from '@/utils/toast'
+import { getToken } from '@/utils/cookies'
 
 /** 创建请求实例 */
 function createService() {
@@ -94,11 +95,11 @@ function createRequestFunction(service) {
     const configDefault = {
       headers: {
         // 携带 Token
-        // Authorization: "Bearer " + getToken(),
-        // "Content-Type": get(config, "headers.Content-Type", "application/json")
+        Authorization: "Bearer " + getToken(),
+        "Content-Type": "application/json;charset=utf-8"
       },
       timeout: 5000,
-      baseURL: process.env.VUE_APP_BASEURL,
+      baseURL: process.env.NODE_ENV === 'development' ? '/api' : process.env.VUE_APP_BASEURL,
       data: {}
     }
     return service(Object.assign(configDefault, config))

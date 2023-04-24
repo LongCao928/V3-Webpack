@@ -2,8 +2,8 @@ import store from '@/stores'
 import { defineStore } from 'pinia'
 // import { usePermissionStore } from './permission'
 import { getToken, removeToken, setToken } from '@/utils/cookies'
-import { resetRouter } from '@/router'
-import { accountLogin, userInfoRequest } from '@/services/api/login'
+// import { resetRouter } from '@/router'
+import LoginService from '@/services/api/login'
 // import { RouteRecordRaw } from 'vue-router'
 
 // interface IUserState {
@@ -27,7 +27,7 @@ export const useUserInfoStore = defineStore({
     /** 登录 */
     login(userInfo) {
       return new Promise((resolve, reject) => {
-        accountLogin({
+        LoginService.accountLogin({
           username: userInfo.username.trim(),
           password: userInfo.password
         })
@@ -44,7 +44,7 @@ export const useUserInfoStore = defineStore({
     /** 获取用户详情 */
     getInfo() {
       return new Promise((resolve, reject) => {
-        userInfoRequest()
+        LoginService.userInfoRequest()
           .then((res) => {
             this.roles = res.data.user.roles
             resolve(res)
@@ -72,7 +72,7 @@ export const useUserInfoStore = defineStore({
       removeToken()
       this.token = ''
       this.roles = []
-      resetRouter()
+      // resetRouter()
     },
     /** 重置 token */
     resetToken() {

@@ -108,6 +108,9 @@ const handleLogin = () => {
       }).catch(() => {
         loading.value = false
         // createCode()
+        /* router.push({ path: '/' }).catch((err) => {
+          console.warn(err)
+        }) */
       })
     } else {
       return false

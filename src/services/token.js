@@ -1,7 +1,7 @@
-const { NODE_ENV } = process.env
+const { VUE_APP_STAGE } = process.env
 
-const userToken = `user_token_${NODE_ENV}`
-const sToken = `s_token_${NODE_ENV}`
+const userToken = `user_token_${VUE_APP_STAGE}`
+const sToken = `s_token_${VUE_APP_STAGE}`
 
 function clear() {
   sessionStorage.removeItem(sToken)

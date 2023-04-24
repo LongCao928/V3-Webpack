@@ -46,7 +46,9 @@
       "parser": "@babel/eslint-parser"
     },
     "globals": {
-      "_": true
+      "_": true,
+      "defineProps": "readonly",
+      "defineEmits": "readonly"
     },
     "rules": {
       "vue/multi-word-component-names": "off"
