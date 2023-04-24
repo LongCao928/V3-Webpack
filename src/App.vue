@@ -1,6 +1,8 @@
 <template>
   <template v-if="isShowHeader">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div class="header-img">
+      <img alt="Vue logo" src="./assets/logo.png">
+    </div>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <div class="router-link">
       <router-link to="/hello-world" :class="{'selected': fullPath === '/hello-world'}">Hello World</router-link>
@@ -66,11 +68,15 @@ function openAxiosPage() {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 </style>
 <style scoped lang="scss">
+.header-img {
+  display: flex;
+  justify-content: center;
+}
 .router-link {
   font-size: 14px;
   margin-bottom: 20px;

@@ -130,6 +130,7 @@ const instance = axios.create({
 // 请求拦截
 instance.interceptors.request.use(config => {
   if (!config.noAccessToken) {
+    console.log('noAccessToken')
     config.headers.token = Token.getUserToken()
     config.refreshToken = Token.getSToken()
   }
