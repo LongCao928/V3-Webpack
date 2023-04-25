@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-test": "vue-cli-service build --modern --mode test",
-    "lint": "vue-cli-service lint ./src",
-    "lint-fix": "vue-cli-service lint  --fix ./src --ext .vue,.js,.ts",
+    "lint": "vue-cli-service lint",
+    "lint-fix": "vue-cli-service lint  --fix --ext .vue,.js,.ts",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "path-browserify": "^1.0.1",
     "prettier": "^2.8.8",
     "sass": "^1.62.0",
@@ -57,6 +58,9 @@
     "rules": {
       "vue/multi-word-component-names": "off"
     }
+  },
+  "lint-staged": { 
+    "src/**/*.{js,vue,ts}": "npm run lint"
   },
   "browserslist": [
     "> 1%",
