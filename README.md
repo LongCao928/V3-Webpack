@@ -37,15 +37,14 @@ npm run lint
 ### 目录结构
 
 ```
-├─ vue.config.ts // 项目配置
+├─ vue.config.js // 项目配置
 ├─ public // 文件下资源将会直接被拷贝，不会经过 webpack 的处理。需要通过绝对路径来引用。
 ├─ babel.config.js // babel 配置文件
 ├─ package.json // 项目配置文件
-├─ package-lock.json // 安装的依赖包指定版本
+├─ package-lock.json // 安装的依赖包指定版本(node_modules 快照)
 ├─ jsconfig.json // js 配置
 ├─ .env.xxx // 各环境的配置文件
 ├─ .gitignore // 配置 git 提交忽略文件
-(node_modules 快照)
 └─ src
    │─ App.vue // 根容器
    │─ main.js // 入口文件
