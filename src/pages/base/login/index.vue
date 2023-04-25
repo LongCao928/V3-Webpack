@@ -231,7 +231,7 @@ const handlePswLoginIn = () => {
       console.log('可正常登录')
       isPswLoginLoading.value = true
       const params = {
-        mobile_num: passwordForm.phone,
+        mobileNum: passwordForm.phone,
         pwd: passwordForm.password
       }
       try {
@@ -282,7 +282,7 @@ const handGetCode = async () => {
     if (valid) {
       codeLoading.value = true
       try {
-        const resp = await userHttp.getVCde({ mobile_num: formLoginData.phone })
+        const resp = await userHttp.getVCde({ mobileNum: formLoginData.phone })
         console.log(resp) // {"code":0,"msg":"","data":[]}
         nonTraceSuccess()
       } catch (error) {

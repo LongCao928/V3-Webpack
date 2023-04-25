@@ -83,6 +83,9 @@ module.exports = defineConfig({
     config.when(process.env.NODE_ENV === 'development',
       config => config.devtool('cheap-source-map')
     )
+    /* config.module.rule('eslint').use('eslint-loader').options({
+      fix: true
+    }) */
     // svg
     // const dir = path.resolve(__dirname, 'src/icons/svg')
     /*config.module
@@ -104,15 +107,15 @@ module.exports = defineConfig({
     .add(dir)*/
     // 将运行代码单独生成文件
     if (process.env.NODE_ENV !== 'development') {
-    config.cache({
-      // 将缓存类型设置为 filesystem, 默认是 memory
-      type: 'filesystem',
-      buildDependencies: {
-        // 更改配置文件时重新缓存
-        config: [__filename]
-      }
-    })
-    config.optimization.runtimeChunk('single')
+      config.cache({
+        // 将缓存类型设置为 filesystem, 默认是 memory
+        type: 'filesystem',
+        buildDependencies: {
+          // 更改配置文件时重新缓存
+          config: [__filename]
+        }
+      })
+      config.optimization.runtimeChunk('single')
     }
   }
 })

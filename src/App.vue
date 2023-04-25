@@ -28,7 +28,6 @@ const isShowHeader = ref(true)
 const fullPath = ref('')
 
 const Router = useRouter()
-
 watch(
   // 不能直接侦听响应式对象的属性值, 需要用一个返回该属性的 getter 函数
   () => Router.currentRoute.value,

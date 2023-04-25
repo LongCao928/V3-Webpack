@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "build-test": "vue-cli-service build --modern --mode test",
     "lint": "vue-cli-service lint",
-    "lint-fix": "vue-cli-service lint --fix --ext .vue,.js,.ts",
+    "lint-fix": "vue-cli-service lint -- --fix --ext .vue,.js,.ts",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -38,28 +38,7 @@
     "sass-loader": "^13.2.2",
     "terser-webpack-plugin": "^5.3.7"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "globals": {
-      "_": true,
-      "defineProps": "readonly",
-      "defineEmits": "readonly"
-    },
-    "rules": {
-      "vue/multi-word-component-names": "off"
-    }
-  },
-  "lint-staged": { 
+  "lint-staged": {
     "src/**/*.{js,vue,ts}": "npm run lint"
   },
   "browserslist": [
